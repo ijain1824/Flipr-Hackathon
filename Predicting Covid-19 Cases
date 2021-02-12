@@ -1,0 +1,241 @@
+import pandas as pd
+dataset = pd.read_csv("Train_dataset.csv")
+dataset["Type"].unique()
+dataset.groupby(["Type"]).count()
+
+values = {'Type': "M", "SWM": 0, "Population [2011]": 0, "Popuation [2001]": 0}
+dataset = dataset.fillna(value=values)
+
+for i in range (0, 1288):
+    if dataset['Type'][i] == "M.C" or dataset['Type'][i] == "M.C." or dataset['Type'][i] == "M.Corp" or dataset['Type'][i] == "M.Corp.":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "aa")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "MEDIUM"
+        
+    elif dataset['Type'][i] == "MPUA":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "ab")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "LOW"
+        
+    elif dataset['Type'][i] == "T":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "ac")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "MEDIUM"
+        
+    elif dataset['Type'][i] == "M":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "ad")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "HIGH"
+        
+    elif dataset['Type'][i] == "C-1T":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "ae")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "LOW"
+        
+    elif dataset['Type'][i] == "M.Cl" or dataset['Type'][i] == "M.Cl." or dataset['Type'][i] == "M Cl":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "af")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "MEDIUM"
+        
+    elif dataset['Type'][i] == "N.P" or dataset['Type'][i] == "N.Pd" or dataset['Type'][i] == "N.P.P" or dataset['Type'][i] == "N.P." or dataset['Type'][i] == "Nagar Parishad" or dataset['Type'][i] == "N.P.P." or dataset['Type'][i] == "NPP" or dataset['Type'][i] == "NP" or dataset['Type'][i] == "Np":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "ag")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "MEDIUM"
+        
+    elif dataset['Type'][i] == "UA" or dataset['Type'][i] == "U.A":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "ah")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "MEDIUM"
+        
+    elif dataset['Type'][i] == "M.B" or dataset['Type'][i] == "M.B." or dataset['Type'][i] == "MB":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "ai")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "MEDIUM"
+        
+    elif dataset['Type'][i] == "CMC" or dataset['Type'][i] == "C.M.C":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "aj")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "LOW"
+        
+    elif dataset['Type'][i] == "C.T" or dataset['Type'][i] == "C.T." or dataset['Type'][i] == "CT":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "ak")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "HIGH"
+        
+    elif dataset['Type'][i] == "N.A.C" or dataset['Type'][i] == "NAC" or dataset['Type'][i] == "N.A.C.":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "al")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "MEDIUM"
+        
+    elif dataset['Type'][i] == "T.C" or dataset['Type'][i] == "T.C.":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "am")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "HIGH"
+        
+    elif dataset['Type'][i] == "T.M.C" or dataset['Type'][i] == "T.M.C.":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "an")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "MEDIUM"
+        
+    elif dataset['Type'][i] == "N.T":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "ao")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "MEDIUM"
+        
+    elif dataset['Type'][i] == "C.B":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "ap")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "MEDIUM"
+    
+    elif dataset['Type'][i] == "T.P" or dataset['Type'][i] == "T.P." or dataset['Type'][i] == "TP":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "aq")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "MEDIUM"
+        
+    elif dataset['Type'][i] == "N.A":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "ar")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "LOW"
+    
+    elif dataset['Type'][i] == "I.N.A":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "as")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "LOW"
+    
+    elif dataset['Type'][i] == "G.P" or dataset['Type'][i] == "G.P.":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "at")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "LOW"
+    
+    elif dataset['Type'][i] == "M&F":
+        dataset['Type'][i] = dataset['Type'][i].replace(dataset['Type'][i], "au")
+        if dataset['SWM'][i] == 0:
+            dataset['SWM'][i] = "LOW"
+
+dataset["Type"].unique()
+
+dataset.groupby(["Type", "SWM"]).count()
+
+dataset['Female Population'] = dataset['Female Population'].fillna(dataset.groupby('State')['Female Population'].transform('mean'))
+
+dataset['Avg Temp'] = dataset['Avg Temp'].fillna(dataset.groupby('State')['Avg Temp'].transform('mean'))
+
+dataset['Sex Ratio'] = dataset['Sex Ratio'].fillna(int(dataset['Sex Ratio'].mean()))
+dataset['Median Age'] = dataset['Median Age'].fillna(int(dataset['Median Age'].mean()))
+
+dict = []
+for i in range(0, 1288):
+      dict.append(dataset.iloc[i]["Female Population"]*(1+(1000/dataset.iloc[i]["Sex Ratio"])))
+dataset.insert(3, "Population [2020]", dict, True)
+
+growth = []
+for i in range(0, 1288):
+    if ((dataset.iloc[i]["Population [2011]"]==0) and (dataset.iloc[i]["Popuation [2001]"]==0)):
+        growth.append(0.152351)
+    elif ((dataset.iloc[i]["Population [2011]"]!=0) and (dataset.iloc[i]["Popuation [2001]"]==0)):
+        growth.append((1/9)*((dataset.iloc[i]["Population [2020]"]-float(dataset.iloc[i]["Population [2011]"].replace(",", "")))/float(dataset.iloc[i]["Population [2011]"].replace(",", ""))))
+    elif ((dataset.iloc[i]["Population [2011]"]==0) and (dataset.iloc[i]["Popuation [2001]"]!=0)):
+        growth.append((1/19)*((dataset.iloc[i]["Population [2020]"]-float(dataset.iloc[i]["Popuation [2001]"].replace(",", "")))/float(dataset.iloc[i]["Popuation [2001]"].replace(",", ""))))
+    else:
+        growth.append(0.5*(((1/9)*((dataset.iloc[i]["Population [2020]"]-float(dataset.iloc[i]["Population [2011]"].replace(",", "")))/float(dataset.iloc[i]["Population [2011]"].replace(",", ""))))+((0.1)*((float(dataset.iloc[i]["Population [2011]"].replace(",", ""))-float(dataset.iloc[i]["Popuation [2001]"].replace(",", "")))/float(dataset.iloc[i]["Popuation [2001]"].replace(",", ""))))))
+dataset.insert(6, "Avg Rate Population Growth (per year)", growth, True)
+
+dataset.drop(dataset[dataset['Avg Rate Population Growth (per year)'] < 0].index, inplace = True)
+
+avg = dataset["Avg Rate Population Growth (per year)"].sum()/len(dataset[dataset["Avg Rate Population Growth (per year)"]>0])
+
+dataset = dataset.reset_index()
+dataset = dataset.drop(columns=["Population [2011]", "Popuation [2001]", "index"])
+
+dataset["Avg Temp"][1128] = 27
+dataset["Avg Temp"][306] = 22
+dataset["Avg Temp"][308] = 27
+
+dataset["Population [2020]"][1269] = dataset.groupby(["State"]).mean()["Population [2020]"][33]
+
+dataset['# of hospitals'] = dataset['# of hospitals']/dataset['Population [2020]']
+dataset['Toilets Avl'] = dataset['Toilets Avl']/dataset['Population [2020]']
+
+X = dataset.iloc[:, 3:9].values
+
+from sklearn.preprocessing import LabelEncoder
+labelencoder1 = LabelEncoder()
+X[:, 5] = labelencoder1.fit_transform(X[:, 5])
+
+from sklearn.preprocessing import StandardScaler
+sc_x = StandardScaler()
+X = sc_x.fit_transform(X)
+
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+wcss = []
+for i in range (1, 11):
+    kmeans = KMeans(n_clusters=i, init='k-means++', max_iter=500, n_init=10, random_state=0)
+    kmeans.fit(X)
+    wcss.append(kmeans.inertia_)
+plt.plot(range(1, 11), wcss)
+plt.title('The Elbow method')
+plt.xlabel('No of Clusters')
+plt.ylabel('wcss')
+plt.show()
+
+kmeans = KMeans(n_clusters=7, init='k-means++', max_iter=300, n_init=10, random_state=0)
+y_pred = kmeans.fit_predict(X)
+
+dataset["clusters"] = pd.DataFrame(y_pred)
+
+dataset['Toilets Avl'] = dataset['Toilets Avl'].fillna(dataset.groupby('clusters')['Toilets Avl'].transform('mean'))
+dataset['Water Purity'] = dataset['Water Purity'].fillna(dataset.groupby('clusters')['Water Purity'].transform('mean'))
+dataset['H Index'] = dataset['H Index'].fillna(dataset.groupby('clusters')['H Index'].transform('mean'))
+dataset['# of hospitals'] = dataset['# of hospitals'].fillna(dataset.groupby('clusters')['# of hospitals'].transform('mean'))
+dataset['Foreign Visitors'] = dataset['Foreign Visitors'].fillna(dataset.groupby('clusters')['Foreign Visitors'].transform('mean'))
+
+dataset['Toilets Avl'] = dataset['Toilets Avl'].fillna(dataset.groupby('State')['Toilets Avl'].transform('mean'))
+dataset['Water Purity'] = dataset['Water Purity'].fillna(dataset.groupby('State')['Water Purity'].transform('mean'))
+dataset['H Index'] = dataset['H Index'].fillna(dataset.groupby('State')['H Index'].transform('mean'))
+dataset['# of hospitals'] = dataset['# of hospitals'].fillna(dataset.groupby('State')['# of hospitals'].transform('mean'))
+dataset['Foreign Visitors'] = dataset['Foreign Visitors'].fillna(dataset.groupby('State')['Foreign Visitors'].transform('mean'))
+
+dataset = dataset.drop(columns=["City", "clusters", "Female Population"])
+
+X1  = dataset.iloc[:, :-1].values
+labelencoder4 = LabelEncoder()
+X1[:, 7] = labelencoder4.fit_transform(X1[:, 7])
+from sklearn.preprocessing import OneHotEncoder
+labelencoder2 = LabelEncoder()
+X1[:, 1] = labelencoder4.fit_transform(X1[:, 1])
+labelencoder3 = LabelEncoder()
+X1[:, 0] = labelencoder4.fit_transform(X1[:, 0])
+onehotencoder1 = OneHotEncoder(categorical_features=[0])
+X1 = onehotencoder1.fit_transform(X1).toarray()
+onehotencoder1 = OneHotEncoder(categorical_features=[36])
+X1 = onehotencoder1.fit_transform(X1).toarray()
+
+X_train = X1[0:769, :]
+X_test = X1[769:1270, :]
+Y_train = dataset.iloc[0:769, 13].values
+
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
+
+from sklearn.ensemble import GradientBoostingRegressor
+regressor = GradientBoostingRegressor(n_estimators=100)
+regressor.fit(X_train, Y_train)
+
+y_pred = regressor.predict(X_test)
+
+from sklearn.model_selection import cross_val_score
+accuracies = cross_val_score(estimator=regressor, X=X_train, y=Y_train, cv=50, scoring='neg_mean_squared_error')
+accuracies.mean()
+
+from sklearn.model_selection import GridSearchCV
+parameters = [{'C': [1, 10, 100, 1000], 'kernel': ['sigmoid']}, {'C': [1, 10, 100, 1000], 'kernel': ['rbf'], 'gamma': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]}]
+grid_search = GridSearchCV(estimator = regressor, cv = 50, n_jobs = -1, scoring = 'neg_mean_squared_error', param_grid = parameters)
+grid_search = grid_search.fit(X_train, Y_train)
+best_score = grid_search.best_score_
+best_parameters = grid_search.best_params_
+
+import numpy as np
+y_pred = np.around(y_pred)
